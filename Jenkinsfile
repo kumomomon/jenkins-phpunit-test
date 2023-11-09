@@ -4,17 +4,12 @@ pipeline {
 			image 'composer:latest'
 		}
 	}
-    options {
-        skipDefaultCheckout true
-    }
-    stages {
-        stage('Checkout') {
-            steps {
-                script {
-                    git branch: 'master', url: 'https://github.com/your-username/your-repository.git'
-                }
-            }
-        }
+	stages {
+		stage('Checkout SCM') {
+			steps {
+				git 'https://github.com/simyucheng/jenkins-phpunit-test.git'
+			}
+		}
 		stage('Build') {
 			steps {
 				sh 'composer install'
