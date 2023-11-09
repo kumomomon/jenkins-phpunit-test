@@ -4,7 +4,17 @@ pipeline {
 			image 'composer:latest'
 		}
 	}
-	stages {
+    options {
+        skipDefaultCheckout true
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    git branch: 'master', url: 'https://github.com/your-username/your-repository.git'
+                }
+            }
+        }
 		stage('Build') {
 			steps {
 				sh 'composer install'
