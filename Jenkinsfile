@@ -16,7 +16,7 @@ pipeline {
             }
 		}
 	}
-	pose {
+	post {
 		always {
 			junit testResults: 'logs/unitreport.xml'
 		}
